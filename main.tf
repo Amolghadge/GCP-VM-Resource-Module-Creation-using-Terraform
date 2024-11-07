@@ -35,3 +35,22 @@ module "test_instance" {
     app         = "web-server"
   }
 }
+
+module "terra_instance" {
+  source = "./modules/vm-instance"
+
+  vm_name               = "terraform-instance"
+  machine_type          = "n1-standard-1"
+  zone                  = "us-central1-b"
+  project_id            = "charged-state-441016-j3"
+  image                 = "projects/debian-cloud/global/images/family/debian-11"
+  network               = "default"
+  tags                  = ["web", "production"]
+  startup_script        = "echo 'Hello, World!' > /var/www/html/index.html"
+  service_account_email = "861336884372-compute@developer.gserviceaccount.com"
+  scopes                = ["https://www.googleapis.com/auth/cloud-platform"]
+  labels = {
+    environment = "production"
+    app         = "web-server"
+  }
+}
