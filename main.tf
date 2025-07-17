@@ -47,7 +47,7 @@ module "terra_instance" {
   network               = "default"
   tags                  = ["web", "production"]
   startup_script        = "echo 'Hello, World!' > /var/www/html/index.html"
-  service_account_email = "861336884372-compute@developer.gserviceaccount.com"
+  service_account_email = "<Enter SA>"
   scopes                = ["https://www.googleapis.com/auth/cloud-platform"]
   labels = {
     environment = "production"
